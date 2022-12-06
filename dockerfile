@@ -16,17 +16,3 @@ services:
        MYSQL_USER: cmunkres
        MYSQL_PASSWORD: Primo*23
        MYSQL_RANDOM_ROOT_PASSWORD: "1"
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
