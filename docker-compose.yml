@@ -1,18 +1,29 @@
-version: '3.3'
+version: '3'
+
 services:
-   wordpress:
-     image: wordpress:latest
-     ports:
-       - "8000:80"
-     environment:
-       WORDPRESS_DB_HOST: mysql
-       WORDPRESS_DB_USER: munkresc
-       WORDPRESS_DB_PASSWORD: Primo*23
-       WORDPRESS_DB_NAME: wp_database
-   mysql:
-     image: mysql:5.7
-     environment:
-       MYSQL_DATABASE: wp_database
-       MYSQL_USER: cmunkres
-       MYSQL_PASSWORD: Primo*23
-       MYSQL_RANDOM_ROOT_PASSWORD: "1"
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: usa123
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: example_wp_db
+      MYSQL_USER: db_user1
+      MYSQL_PASSWORD: usa123
+      MYSQL_ROOT_PASSWORD: !Past@
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
